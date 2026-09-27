@@ -13,7 +13,7 @@ public class MainFrame extends JFrame {
     public MainFrame() {
 
         setTitle("Library Management System");
-        setSize(500, 400);
+        setSize(500, 450);
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
@@ -30,6 +30,14 @@ public class MainFrame extends JFrame {
 
         addMemberButton = new JButton("Add Member");
         addMemberButton.setBounds(150, 180, 200, 40);
+        JButton viewMemberButton = new JButton("View Members");
+        viewMemberButton.setBounds(150, 330, 200, 40);
+
+        add(viewMemberButton);
+
+        viewMemberButton.addActionListener(e -> {
+            new ViewMemberPanel();
+        });
         addMemberButton.addActionListener(e -> {
             new AddMemberPanel();
         });
