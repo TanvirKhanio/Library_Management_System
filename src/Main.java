@@ -1,4 +1,5 @@
 import file.FileManager;
+import exception.InvalidDataException;
 
 public class Main {
 
@@ -6,31 +7,15 @@ public class Main {
 
         FileManager file = new FileManager();
 
-        file.addMember("1, Tanvir");
-        file.addMember("2, Rahim");
+        try {
 
-        System.out.println("\nAll Members:");
+            file.addBook("103, Python Programming, Guido");
 
-        file.showMembers();
+            file.addMember("3, Karim");
 
+        } catch (InvalidDataException e) {
 
-        System.out.println("\nUpdating Member:");
-
-        file.updateMember(1, "1, Tanvir Khan");
-
-
-        System.out.println("\nAfter Update:");
-
-        file.showMembers();
-
-
-        System.out.println("\nDeleting Member:");
-
-        file.deleteMember(2);
-
-
-        System.out.println("\nAfter Delete:");
-
-        file.showMembers();
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 }

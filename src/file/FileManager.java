@@ -1,20 +1,32 @@
 package file;
+import exception.InvalidDataException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class FileManager {
     // implementation of Create of CRUD
-    public void addBook(String data) {
+    public void addBook(String data) throws InvalidDataException {
+
+        if (data.isEmpty()) {
+            throw new InvalidDataException("Book data cannot be empty.");
+        }
+
         try {
             FileWriter writer = new FileWriter("books.txt", true);
+
             writer.write(data + "\n");
+
             writer.close();
+
             System.out.println("Book added successfully.");
+
         } catch (IOException e) {
+
             System.out.println("Having an ERROR to save book.");
         }
     }
+
     //implntn of Read of CRUD
     public void showBooks() {
         try {

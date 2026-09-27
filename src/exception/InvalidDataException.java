@@ -1,4 +1,9 @@
 package exception;
 
-public class InvalidDataException {
+public class InvalidDataException extends Exception {
+
+    public InvalidDataException(String message) {
+        super(message);
+    }
 }
+
