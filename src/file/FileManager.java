@@ -28,4 +28,76 @@ public class FileManager {
             System.out.println("Error reading books.");
         }
     }
+    public void updateBook(int id, String newData) {
+
+        try {
+            FileReader reader = new FileReader("books.txt");
+
+            String allData = "";
+            int character;
+
+            while ((character = reader.read()) != -1) {
+                allData = allData + (char) character;
+            }
+
+            reader.close();
+
+            String[] books = allData.split("\n");
+            String newFile = "";
+
+            for (String book : books) {
+
+                if (book.startsWith(id + ",")) {
+                    newFile = newFile + newData + "\n";
+                } else if (!book.isEmpty()) {
+                    newFile = newFile + book + "\n";
+                }
+            }
+
+            FileWriter writer = new FileWriter("books.txt");
+            writer.write(newFile);
+            writer.close();
+
+            System.out.println("Book updated successfully.");
+
+        } catch (IOException e) {
+            System.out.println("Error updating book.");
+        }
+    }
+
+
+    public void deleteBook(int id) {
+
+        try {
+            FileReader reader = new FileReader("books.txt");
+
+            String allData = "";
+            int character;
+
+            while ((character = reader.read()) != -1) {
+                allData = allData + (char) character;
+            }
+
+            reader.close();
+
+            String[] books = allData.split("\n");
+            String newFile = "";
+
+            for (String book : books) {
+
+                if (!book.startsWith(id + ",") && !book.isEmpty()) {
+                    newFile = newFile + book + "\n";
+                }
+            }
+
+            FileWriter writer = new FileWriter("books.txt");
+            writer.write(newFile);
+            writer.close();
+
+            System.out.println("Book deleted successfully.");
+
+        } catch (IOException e) {
+            System.out.println("Error deleting book.");
+        }
+    }
 }

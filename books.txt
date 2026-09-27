@@ -1,2 +1,1 @@
-101, Java Programming, James Gosling
-102, C Programming, Dennis Ritchie
+101, Advanced Java, James Gosling
