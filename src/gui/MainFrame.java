@@ -13,14 +13,14 @@ public class MainFrame extends JFrame {
     public MainFrame() {
 
         setTitle("Library Management System");
-        setSize(500, 500);
+        setSize(500, 550);
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
         setLocationRelativeTo(null);
 
         JLabel title = new JLabel("Library Management System");
-        title.setBounds(140, 30, 250, 30);
+        title.setBounds(140, 30, 300, 30);
 
         addBookButton = new JButton("Add Book");
         addBookButton.setBounds(150, 80, 200, 40);
@@ -32,7 +32,16 @@ public class MainFrame extends JFrame {
         addMemberButton.setBounds(150, 180, 200, 40);
 
         JButton updateMemberButton = new JButton("Update Member");
-        updateMemberButton.setBounds(150, 380, 200, 40);
+        updateMemberButton.setBounds(150, 280, 200, 40);
+
+        JButton deleteMemberButton = new JButton("Delete Member");
+        deleteMemberButton.setBounds(150, 330, 200, 40);
+
+        add(deleteMemberButton);
+
+        deleteMemberButton.addActionListener(e -> {
+            new DeleteMemberPanel();
+        });
 
         add(updateMemberButton);
 
@@ -41,7 +50,7 @@ public class MainFrame extends JFrame {
         });
 
         JButton viewMemberButton = new JButton("View Members");
-        viewMemberButton.setBounds(150, 330, 200, 40);
+        viewMemberButton.setBounds(150, 230, 200, 40);
 
         add(viewMemberButton);
 
@@ -54,10 +63,11 @@ public class MainFrame extends JFrame {
 
 
         reportButton = new JButton("Generate Report");
-        reportButton.setBounds(150, 230, 200, 40);
+        reportButton.setBounds(150, 380, 200, 40);
+
 
         exitButton = new JButton("Exit");
-        exitButton.setBounds(150, 280, 200, 40);
+        exitButton.setBounds(150, 430, 200, 40);
 
         add(title);
         add(addBookButton);
