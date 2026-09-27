@@ -20,6 +20,28 @@ public class FileManager {
             System.out.println("Having an ERROR to save book.");
         }
     }
+    public void addMember(String data) throws InvalidDataException {
+
+        if (data.isEmpty()) {
+            throw new InvalidDataException("Member data cannot be empty.");
+        }
+
+        try {
+
+            FileWriter writer = new FileWriter("members.txt", true);
+
+            writer.write(data + "\n");
+
+            writer.close();
+
+            System.out.println("Member added successfully.");
+
+        } catch (IOException e) {
+
+            System.out.println("Error saving member.");
+        }
+    }
+
     //implntn of Read of CRUD
     public void showBooks() {
         try {
