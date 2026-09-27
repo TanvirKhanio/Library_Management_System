@@ -112,7 +112,11 @@ public class FileManager {
             System.out.println("Error deleting book.");
         }
     }
-    public void addMember(String data) {
+    public void addMember(String data) throws InvalidDataException {
+
+        if (data.isEmpty()) {
+            throw new InvalidDataException("Member data cannot be empty.");
+        }
 
         try {
             FileWriter writer = new FileWriter("members.txt", true);
@@ -124,9 +128,11 @@ public class FileManager {
             System.out.println("Member added successfully.");
 
         } catch (IOException e) {
+
             System.out.println("Error saving member.");
         }
     }
+
     public void showMembers() {
 
         try {

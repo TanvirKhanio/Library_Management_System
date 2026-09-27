@@ -11,7 +11,7 @@ public class Main {
 
             file.addBook("103, Python Programming, Guido");
 
-            file.addMember("3, Karim");
+            file.addMember("3, Fahim");
 
         } catch (InvalidDataException e) {
 
