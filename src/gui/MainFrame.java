@@ -56,6 +56,10 @@ public class MainFrame extends JFrame {
         reportButton = new JButton("Generate Report");
         reportButton.setBounds(150, 230, 200, 40);
 
+        reportButton.addActionListener(e -> {
+            new ReportPanel();
+        });
+
         exitButton = new JButton("Exit");
         exitButton.setBounds(150, 280, 200, 40);
 
