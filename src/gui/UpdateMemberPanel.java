@@ -61,12 +61,22 @@ public class UpdateMemberPanel extends JFrame {
 
                     String data = memberId + ", " + name.trim();
 
-                    file.updateMember(memberId, data);
+                    boolean updated = file.updateMember(memberId, data);
 
-                    JOptionPane.showMessageDialog(
-                            this,
-                            "Member updated successfully."
-                    );
+                    if (updated) {
+
+                        JOptionPane.showMessageDialog(
+                                this,
+                                "Member updated successfully."
+                        );
+
+                    } else {
+
+                        JOptionPane.showMessageDialog(
+                                this,
+                                "Member not found."
+                        );
+                    }
 
                     idField.setText("");
                     nameField.setText("");

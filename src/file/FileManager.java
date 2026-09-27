@@ -121,7 +121,7 @@ public class FileManager {
             System.out.println("Error deleting book.");
         }
     }
-    public void updateMember(int id, String newData) throws InvalidDataException {
+    public boolean updateMember(int id, String newData) throws InvalidDataException {
         if (newData.isEmpty()) {
             throw new InvalidDataException("Member data cannot be empty.");
         }
@@ -149,11 +149,14 @@ public class FileManager {
             writer.close();
             if (found) {
                 System.out.println("Member updated successfully.");
+                return true;
             } else {
                 System.out.println("Member not found.");
+                return false;
             }
         } catch (IOException e) {
             System.out.println("Error updating member.");
+            return false;
         }
     }
 }
