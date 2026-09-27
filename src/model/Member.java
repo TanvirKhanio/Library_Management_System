@@ -6,8 +6,8 @@ public class Member extends Person {
         super(id, name);
     }
 
+    @Override
     public void displayInfo() {
-        System.out.println("Member ID: " + id);
-        System.out.println("Member Name: " + name);
+        System.out.println(getId() + " " + getName());
     }
 }
