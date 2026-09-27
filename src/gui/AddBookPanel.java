@@ -57,7 +57,7 @@ public class AddBookPanel extends JFrame {
             String title = titleField.getText();
             String author = authorField.getText();
 
-            if (id.isEmpty() || title.isEmpty() || author.isEmpty()) {
+            if (id.trim().isEmpty() || title.trim().isEmpty() || author.trim().isEmpty()) {
 
                 JOptionPane.showMessageDialog(
                         this,
@@ -70,7 +70,7 @@ public class AddBookPanel extends JFrame {
 
                     FileManager file = new FileManager();
 
-                    String data = id + ", " + title + ", " + author;
+                    String data = id.trim() + ", " + title.trim() + ", " + author.trim();
 
                     file.addBook(data);
 
