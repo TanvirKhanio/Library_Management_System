@@ -121,4 +121,39 @@ public class FileManager {
             System.out.println("Error deleting book.");
         }
     }
+    public void updateMember(int id, String newData) throws InvalidDataException {
+        if (newData.isEmpty()) {
+            throw new InvalidDataException("Member data cannot be empty.");
+        }
+        try {
+            FileReader reader = new FileReader("members.txt");
+            String allData = "";
+            int character;
+            while ((character = reader.read()) != -1) {
+                allData = allData + (char) character;
+            }
+            reader.close();
+            String[] members = allData.split("\n");
+            String newFile = "";
+            boolean found = false;
+            for (String member : members) {
+                if (member.startsWith(id + ",")) {
+                    newFile = newFile + newData + "\n";
+                    found = true;
+                } else if (!member.isEmpty()) {
+                    newFile = newFile + member + "\n";
+                }
+            }
+            FileWriter writer = new FileWriter("members.txt");
+            writer.write(newFile);
+            writer.close();
+            if (found) {
+                System.out.println("Member updated successfully.");
+            } else {
+                System.out.println("Member not found.");
+            }
+        } catch (IOException e) {
+            System.out.println("Error updating member.");
+        }
+    }
 }
