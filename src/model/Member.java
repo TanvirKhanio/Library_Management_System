@@ -7,6 +7,7 @@ public class Member extends Person {
     }
 
     public void displayInfo() {
-        System.out.println(id + " " + name);
+        System.out.println("Member ID: " + id);
+        System.out.println("Member Name: " + name);
     }
 }
