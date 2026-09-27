@@ -43,6 +43,12 @@ public class MainFrame extends JFrame {
         add(reportButton);
         add(exitButton);
 
+        // Add Book button
+        addBookButton.addActionListener(e -> {
+            new AddBookPanel();
+        });
+
+        // Exit button
         exitButton.addActionListener(e -> {
             System.exit(0);
         });
