@@ -13,6 +13,8 @@ public class Book {
     }
 
     public void displayInfo() {
-        System.out.println(id + " " + title + " " + author);
+        System.out.println("Book ID: " + id);
+        System.out.println("Title: " + title);
+        System.out.println("Author: " + author);
     }
 }
