@@ -62,7 +62,7 @@ public class AddBookPanel extends JFrame {
 
                 JOptionPane.showMessageDialog(
                         this,
-                        "Please fill all fields."
+                        "Please enter Book ID, Title and Author."
                 );
 
             } else {
