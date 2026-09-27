@@ -48,6 +48,9 @@ public class MainFrame extends JFrame {
         addBookButton.addActionListener(e -> {
             new AddBookPanel();
         });
+        viewBookButton.addActionListener(e -> {
+            new ViewBookPanel();
+        });
 
         // Exit button
         exitButton.addActionListener(e -> {

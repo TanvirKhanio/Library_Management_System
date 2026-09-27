@@ -69,9 +69,11 @@ public class AddBookPanel extends JFrame {
 
                 try {
 
+                    int bookId = Integer.parseInt(id.trim());
+
                     FileManager file = new FileManager();
 
-                    String data = id.trim() + ", " + title.trim() + ", " + author.trim();
+                    String data = bookId + ", " + title.trim() + ", " + author.trim();
 
                     file.addBook(data);
 
@@ -83,6 +85,13 @@ public class AddBookPanel extends JFrame {
                     idField.setText("");
                     titleField.setText("");
                     authorField.setText("");
+
+                } catch (NumberFormatException ex) {
+
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Book ID must be a number."
+                    );
 
                 } catch (InvalidDataException ex) {
 
