@@ -100,4 +100,36 @@ public class FileManager {
             System.out.println("Error deleting book.");
         }
     }
+    public void addMember(String data) {
+
+        try {
+            FileWriter writer = new FileWriter("members.txt", true);
+
+            writer.write(data + "\n");
+
+            writer.close();
+
+            System.out.println("Member added successfully.");
+
+        } catch (IOException e) {
+            System.out.println("Error saving member.");
+        }
+    }
+    public void showMembers() {
+
+        try {
+            FileReader reader = new FileReader("members.txt");
+
+            int character;
+
+            while ((character = reader.read()) != -1) {
+                System.out.print((char) character);
+            }
+
+            reader.close();
+
+        } catch (IOException e) {
+            System.out.println("Error reading members.");
+        }
+    }
 }
