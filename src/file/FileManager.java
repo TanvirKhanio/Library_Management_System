@@ -28,16 +28,42 @@ public class FileManager {
 
         try {
 
+            String[] parts = data.split(",");
+            int newId = Integer.parseInt(parts[0].trim());
+            FileReader reader = new FileReader("members.txt");
+            String line;
+            boolean exists = false;
+            while (true) {
+                String currentData = "";
+                int character;
+                while ((character = reader.read()) != -1) {
+                    if (character == '\n') {
+                        break;
+                    }
+                    currentData = currentData + (char) character;
+                }
+                if (currentData.isEmpty() && character == -1) {
+                    break;
+                }
+                if (currentData.startsWith(newId + ",")) {
+                    exists = true;
+                    break;
+                }
+                if (character == -1) {
+                    break;
+                }
+            }
+            reader.close();
+            if (exists) {
+                throw new InvalidDataException("Member ID already exists.");
+            }
             FileWriter writer = new FileWriter("members.txt", true);
-
             writer.write(data + "\n");
-
             writer.close();
-
             System.out.println("Member added successfully.");
-
+        } catch (NumberFormatException e) {
+            throw new InvalidDataException("Member ID must be a number.");
         } catch (IOException e) {
-
             System.out.println("Error saving member.");
         }
     }
@@ -137,7 +163,7 @@ public class FileManager {
             String newFile = "";
             boolean found = false;
             for (String member : members) {
-                if (member.startsWith(id + ",")) {
+                if (member.startsWith(id + ",") && !found) {
                     newFile = newFile + newData + "\n";
                     found = true;
                 } else if (!member.isEmpty()) {
