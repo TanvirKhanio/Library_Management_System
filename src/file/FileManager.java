@@ -132,4 +132,59 @@ public class FileManager {
             System.out.println("Error reading members.");
         }
     }
+
+    //implementing update
+    public void updateMember(int id, String newData) {
+        try {
+            FileReader reader = new FileReader("members.txt");
+            String allData = "";
+            int character;
+            while ((character = reader.read()) != -1) {
+                allData = allData + (char) character;
+            }
+            reader.close();
+            String[] members = allData.split("\n");
+            String newFile = "";
+            for (String member : members) {
+                if (member.startsWith(id + ",")) {
+                    newFile = newFile + newData + "\n";
+                } else if (!member.isEmpty()) {
+                    newFile = newFile + member + "\n";
+                }
+            }
+            FileWriter writer = new FileWriter("members.txt");
+            writer.write(newFile);
+            writer.close();
+            System.out.println("Member updated successfully.");
+        } catch (IOException e) {
+            System.out.println("Error updating member.");
+        }
+    }
+    //implementing delete
+    public void deleteMember(int id) {
+        try {
+            FileReader reader = new FileReader("members.txt");
+            String allData = "";
+            int character;
+            while ((character = reader.read()) != -1) {
+                allData = allData + (char) character;
+            }
+            reader.close();
+            String[] members = allData.split("\n");
+            String newFile = "";
+            for (String member : members) {
+                if (!member.startsWith(id + ",") && !member.isEmpty()) {
+                    newFile = newFile + member + "\n";
+                }
+            }
+            FileWriter writer = new FileWriter("members.txt");
+            writer.write(newFile);
+            writer.close();
+            System.out.println("Member deleted successfully.");
+        } catch (IOException e) {
+            System.out.println("Error deleting member.");
+        }
+    }
+
+
 }
