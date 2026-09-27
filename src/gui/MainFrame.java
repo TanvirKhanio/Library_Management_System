@@ -30,6 +30,10 @@ public class MainFrame extends JFrame {
 
         addMemberButton = new JButton("Add Member");
         addMemberButton.setBounds(150, 180, 200, 40);
+        addMemberButton.addActionListener(e -> {
+            new AddMemberPanel();
+        });
+
 
         reportButton = new JButton("Generate Report");
         reportButton.setBounds(150, 230, 200, 40);
