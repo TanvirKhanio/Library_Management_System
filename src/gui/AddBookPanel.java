@@ -16,6 +16,7 @@ public class AddBookPanel extends JFrame {
 
         setTitle("Add Book");
         setSize(400, 300);
+        setResizable(false);
         setLayout(null);
         setLocationRelativeTo(null);
 
