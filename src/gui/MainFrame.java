@@ -14,6 +14,7 @@ public class MainFrame extends JFrame {
 
         setTitle("Library Management System");
         setSize(500, 400);
+        setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
         setLocationRelativeTo(null);
