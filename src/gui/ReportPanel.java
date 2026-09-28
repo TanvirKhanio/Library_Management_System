@@ -29,9 +29,9 @@ public class ReportPanel extends JFrame {
         int bookCount = 0;
         int memberCount = 0;
 
-        report = report + "========================================\n";
+        report = report + "________________________________________\n";
         report = report + "          LIBRARY MANAGEMENT REPORT\n";
-        report = report + "========================================\n\n";
+        report = report + "________________________________________\n\n";
 
         report = report + "BOOKS\n";
         report = report + "----------------------------------------\n";
@@ -87,7 +87,7 @@ public class ReportPanel extends JFrame {
 
         report = report + "\nTotal Members: " + memberCount + "\n";
 
-        report = report + "\n========================================\n";
+        report = report + "\n________________________________________\n";
 
         reportArea.setText(report);
 

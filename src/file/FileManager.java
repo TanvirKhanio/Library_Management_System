@@ -67,8 +67,6 @@ public class FileManager {
             System.out.println("Error saving member.");
         }
     }
-
-    //implntn of Read of CRUD
     public void showBooks() {
         try {
             FileReader reader = new FileReader("books.txt");
@@ -121,7 +119,8 @@ public class FileManager {
             FileReader reader = new FileReader("books.txt");
             String allData = "";
             int character;
-            while ((character = reader.read()) != -1) {
+            while ((character = reader.read()) != -1)
+            {
                 allData = allData + (char) character;
             }
             reader.close();
@@ -155,7 +154,8 @@ public class FileManager {
             FileReader reader = new FileReader("members.txt");
             String allData = "";
             int character;
-            while ((character = reader.read()) != -1) {
+            while ((character = reader.read()) != -1)
+            {
                 allData = allData + (char) character;
             }
             reader.close();
